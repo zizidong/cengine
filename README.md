@@ -51,17 +51,22 @@ CMake options:
 
 ## Neural networks
 
-The engine loads two network files:
+Evaluation uses NNUE and the engine needs two files:
 
-- `nn-37f18f62d772.nnue`: small network, included in `src/nnue/`.
-- `nn-134a887f4c8f.nnue`: large network, not included in this repository
-  because of its size (about 94 MB).
+- `nn-37f18f62d772.nnue`: the small network, included in `src/nnue/`.
+- `nn-134a887f4c8f.nnue`: the large network, not included in this repository
+  because of its size.
 
-Search path for a network file: the executable's directory, then `src/nnue/`
-relative to the executable directory and to the current working directory. To
-enable NNUE evaluation, place the large network next to the small one in
-`src/nnue/`, or in the same directory as the executable. Without the large
-network, the engine evaluates with material and piece-square tables.
+The large network uses the standard Stockfish NNUE format (HalfKAv2_hm with
+FullThreats and PP_3Wide, L1 1024, L2 32, L3 32), so any compatible
+Stockfish-based network can be used. Save it as `nn-134a887f4c8f.nnue` next to
+the small network or next to the executable, or point the `EvalFile` option at
+its path.
+
+The engine looks for a network file in the executable's directory, then in
+`src/nnue/` relative to the executable directory and to the current working
+directory. Both networks are required for NNUE evaluation; without the large
+network the engine evaluates with material and piece-square tables.
 
 ## Usage
 
