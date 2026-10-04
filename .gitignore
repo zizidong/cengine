@@ -1,0 +1,17 @@
+# Build output
+/build/
+
+# NNUE training tooling / datasets (not part of the engine)
+/trian/
+/data/
+
+# Local agent/tooling state
+/.kilo/
+
+# Large NNUE net (~94 MiB) — download separately
+/src/nnue/nn-134a887f4c8f.nnue
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store
+*.swp
